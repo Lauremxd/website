@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now - Thrift Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const productName = params.get("product") || "Baggy Jeans";
+      const productPrice = params.get("price") || "₹1200";
+      const productImage = params.get("image") || "img 13.jpeg";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("product-name").textContent = productName;
+        document.getElementById("product-price").textContent = productPrice;
+        document.getElementById("product-image").src = productImage;
+      });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <a href="products.html" class="back-button">&#8592; Continue Shopping</a>
+        <h1>Checkout - <span id="product-name">Baggy jeans</span></h1>
+      </div>
+    </header>
+
+    <main>
+      <section class="checkout-section">
+        <h2>Complete Your Purchase</h2>
+        <div class="product-info">
+          <img id="product-image" alt="Product Image" class="product-image">
+          <div class="product-details">
+            <h3 id="product-name">Baggy Jeans</h3>
+            <p class="price" id="product-price">₹1200</p>
+          </div>
+        </div>
+
+        <form class="checkout-form">
+          <label for="size">Select Size:</label>
+          <select id="size" name="size" required>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">Extra Large</option>
+          </select>
+
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+
+          <label for="address">Shipping Address:</label>
+          <textarea id="address" name="address" rows="4" placeholder="Enter your full shipping address..." required></textarea>
+
+          <div class="button-group">
+
+            <button type="submit" class="btn-buy">Proceed to Payment</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Thrift Store. All Rights Reserved.</p>
+    </footer>
+
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #222;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        position: relative;
+      }
+
+      .back-button {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        background-color: #ff6600;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+      }
+
+      .back-button:hover {
+        background-color: #e65500;
+      }
+
+      main {
+        flex: 1;
+        padding: 2rem;
+      }
+
+      .checkout-section {
+        background-color: #f7f7f7;
+        padding: 2rem;
+        margin: 2rem auto;
+        max-width: 600px;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .product-image {
+        width: 100px;
+        border-radius: 8px;
+        margin-right: 1rem;
+      }
+
+      .product-details {
+        text-align: left;
+      }
+
+      .price {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #ff6600;
+      }
+
+      .checkout-form label {
+        display: block;
+        margin-top: 1rem;
+        font-weight: bold;
+      }
+
+      .checkout-form select, 
+      .checkout-form input, 
+      .checkout-form textarea {
+        width: 100%;
+        padding: 0.8rem;
+        margin: 0.5rem 0;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+      }
+
+      .button-group {
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .btn-cart, .btn-buy {
+        background-color: #333;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .btn-cart:hover, .btn-buy:hover {
+        background-color: #555;
+      }
+
+      footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        margin-top: auto;
+      }
+    </style>
+  </body>
+
+</html>

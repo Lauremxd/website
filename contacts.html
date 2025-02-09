@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Loda Enterprise</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: #222;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffa500;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #ffa500;
+      left: 0;
+      bottom: -5px;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease-in-out;
+    }
+    nav ul li a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .contact-section {
+      padding: 3rem 2rem;
+      background-color: #fff8e1;
+      text-align: center;
+      animation: slideInUp 1s ease-in-out;
+    }
+    @keyframes slideInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .contact-section h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 1rem;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+      animation: fadeInLeft 1.5s ease-out;
+    }
+    @keyframes fadeInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: #ff6600;
+      outline: none;
+      box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    }
+    .btn-submit {
+      background-color: #ff6600;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn-submit:hover {
+      background-color: crimson;
+      transform: translateY(-3px);
+    }
+    .address-section {
+      margin-top: 3rem;
+      animation: slideInUp 1.5s ease-in-out;
+    }
+    .address-section p {
+      margin-bottom: 1rem;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: auto;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+      display: none;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.querySelector(".contact-form");
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const messageInput = document.getElementById("message");
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let isValid = true;
+        document.querySelectorAll(".error-message").forEach(msg => msg.style.display = "none");
+
+        if (!nameInput.value.trim()) {
+          showError(nameInput, "Please fill in your name.");
+          isValid = false;
+        }
+
+        if (!validateEmail(emailInput.value.trim())) {
+          showError(emailInput, "Please enter a valid email address.");
+          isValid = false;
+        }
+
+        if (!messageInput.value.trim()) {
+          showError(messageInput, "Please fill in your message.");
+          isValid = false;
+        }
+
+        if (isValid) {
+          alert("Thank you for contacting us!");
+          form.reset();
+        }
+      });
+
+      function showError(element, message) {
+        const errorMessage = document.createElement("div");
+        errorMessage.className = "error-message";
+        errorMessage.textContent = message;
+        element.parentNode.appendChild(errorMessage);
+        errorMessage.style.display = "block";
+      }
+
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Contact Us - Loda Enterprise</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <h1>Get in Touch</h1>
+    <form class="contact-form">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Your Name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Your Email">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+
+    <section class="address-section">
+      <h2>Store Location:</h2>
+      <p>Vadodara, ShyamalCounty551, India</p>
+      <p>Phone: +917628807918</p>
+      <p>Email: Luckymolsoi@gmail.com</p>
+    </section>
+  </section>
+
+  <footer>
+    <p>© 2025 Thrift Store. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

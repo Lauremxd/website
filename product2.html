@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Showcase - Thrift Store</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Product Showcase</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html" class="active">Products</a></li>
+            <li><a href="contacts.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="product-gallery">
+        <h2>Vintage Varsity Jacket</h2>
+        <div class="image-gallery">
+          <div class="gallery-item">
+            <a href="#image1">
+              <img src="product1-front.jpg" alt="Denim Jacket - Front View">
+            </a>
+          </div>
+          <div class="gallery-item">
+            <a href="#image2">
+              <img src="product1-back.jpg" alt="Denim Jacket - Back View">
+            </a>
+          </div>
+          <div class="gallery-item">
+            <a href="#image3">
+              <img src="product1-closeup.jpg" alt="Denim Jacket - Closeup">
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="image1" class="image-section">
+        <h3>Front View</h3>
+        <img src="product1-front.jpg" alt=" - Front View">
+      </section>
+
+      <section id="image2" class="image-section">
+        <h3>Back View</h3>
+        <img src="product1-back.jpg" alt="Denim Jacket - Back View">
+      </section>
+
+      <section id="image3" class="image-section">
+        <h3>Closeup View</h3>
+        <img src="product1-closeup.jpg" alt="Denim Jacket - Closeup">
+      </section>
+
+      <section id="image4" class="image-section">
+        <h3>Styled Look</h3>
+        <img src="product1-styled.jpg" alt="Denim Jacket Styled Look">
+      </section>
+
+      <section id="image5" class="image-section">
+        <h3>Fabric Details</h3>
+        <img src="product1-fabric.jpg" alt="Denim Jacket Fabric Close-up">
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Thrift Store. All Rights Reserved.</p>
+    </footer>
+
+    <style>
+      /* Shared Header and Footer Styles */
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #222;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      header:hover {
+        background-color: #333;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: color 0.3s, background-color 0.3s ease-in-out;
+      }
+
+      nav ul li a:hover {
+        color: black;
+        background-color: #ffa500;
+      }
+
+      nav ul li a:active {
+        background-color: #ff6600;
+        color: white;
+      }
+
+      main {
+        flex: 1;
+        padding: 2rem;
+      }
+
+      /* Product Gallery and Image Section Styles */
+      .product-gallery {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .image-gallery {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      .gallery-item img {
+        width: 150px;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .gallery-item img:hover {
+        transform: scale(1.1);
+      }
+
+      .image-section {
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .image-section img {
+        max-width: 90%;
+        border-radius: 12px;
+      }
+
+      .image-section h3 {
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        margin-top: auto;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      footer:hover {
+        background-color: #333;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Showcase - Criminal Gothic Jeans</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: #222;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      animation: fadeInDown 1s ease-in-out;
+      position: relative;
+    }
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .back-button {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: #ff6600;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    .back-button:hover {
+      background-color: #e65500;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffa500;
+    }
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #ffa500;
+      left: 0;
+      bottom: -5px;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease-in-out;
+    }
+    nav ul li a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+    .product-gallery {
+      text-align: center;
+      padding: 2rem;
+    }
+    .image-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .gallery-item img {
+      width: 150px;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-item img:hover {
+      transform: scale(1.1);
+    }
+    .image-section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .image-section img {
+      max-width: 40%;
+      border-radius: 12px;
+    }
+    .image-section h3 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    .purchase-section {
+      padding: 2rem;
+      background-color: #f7f7f7;
+      margin: 2rem auto;
+      max-width: 600px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .purchase-form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    .purchase-form select, .purchase-form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    .button-group {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .btn-cart, .btn-buy {
+      background-color: #333;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn-cart:hover, .btn-buy:hover {
+      background-color: #555;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: auto;
+      transition: background-color 0.3s ease-in-out;
+    }
+    footer:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="products.html" class="back-button">&#8592;</a>
+    <h1>Criminal Gothic Jeans</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="product-gallery">
+      <h2>Criminal Gothic Jeans</h2>
+      <div class="image-gallery">
+        <div class="gallery-item">
+          <a href="#image1">
+            <img src="img 7.jpeg" alt="Criminal Gothic Jeans - Front View">
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="#image2">
+            <img src="img 6.jpeg" alt="Criminal Gothic Jeans - Back View">
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="#image3">
+            <img src="img2.jpeg" alt="Criminal Gothic Jeans - Closeup">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="image1" class="image-section">
+      <h3>Front View</h3>
+      <img src="img 7.jpeg" alt="Criminal Gothic Jeans - Front View">
+    </section>
+
+    <section id="image2" class="image-section">
+      <h3>Back View</h3>
+      <img src="img 6.jpeg" alt="Criminal Gothic Jeans - Back View">
+    </section>
+
+    <section id="image3" class="image-section">
+      <h3>Closeup View</h3>
+      <img src="img2.jpeg" alt="Criminal Gothic Jeans - Closeup">
+    </section>
+
+    <section class="purchase-section">
+      <h2>Buy Criminal Gothic Jeans</h2>
+      <form class="purchase-form">
+        <label for="size">Select Size:</label>
+        <select id="size" name="size" required>
+          <option value="S">Small</option>
+          <option value="M">Medium</option>
+          <option value="L">Large</option>
+          <option value="XL">Extra Large</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+
+        <div class="button-group">
+          <button type="button" class="btn-cart">Add to Cart</button>
+          <a href="Buynow.html" class="btn-buy" style="text-decoration: none;">Buy Now</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Thrift Store. All Rights Reserved.</p>
+  </footer>
+</body>
+
+</html>
